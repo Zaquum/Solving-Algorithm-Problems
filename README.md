@@ -1,2 +1,2 @@
 # Solving-Algorithm-Problems
-Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub](https://github.com/QasimWani/LeetHub)
+Zaquum's Solving Archive with auto push by BaekjoonHub and LeetHub.
