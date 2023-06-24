@@ -8,7 +8,7 @@ class Solution:
             if idx == n:
                 if total == 0:
                     return 0
-                return -inf
+                return float('-inf')
             return max(
                 solve(idx+1, total + rods[idx]) + rods[idx],
                 solve(idx+1, total - rods[idx]),
