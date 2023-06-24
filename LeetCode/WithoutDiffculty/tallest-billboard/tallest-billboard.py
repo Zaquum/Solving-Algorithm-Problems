@@ -4,14 +4,14 @@ class Solution:
         n = len(rods)
 
         @functools.lru_cache(None)
-        def solve(idx, total):
+        def solve(idx, diff):
             if idx == n:
-                if total == 0:
+                if diff == 0:
                     return 0
                 return float('-inf')
             return max(
-                solve(idx+1, total + rods[idx]) + rods[idx],
-                solve(idx+1, total - rods[idx]),
-                solve(idx+1, total)
+                solve(idx+1, diff + rods[idx]) + rods[idx], # left
+                solve(idx+1, diff - rods[idx]), # right
+                solve(idx+1, diff) # None
             )
         return solve(0, 0)
