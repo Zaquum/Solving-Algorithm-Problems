@@ -19,7 +19,7 @@ class Solution:
                 return -prob
             for neigh, p in graph.get(cur, []):
                 if not neigh in visited:
-                    new_prob = -1 * abs(prob * p)
+                    new_prob = prob * p
                     heappush(max_heap, (new_prob, neigh))
 
         return 0
