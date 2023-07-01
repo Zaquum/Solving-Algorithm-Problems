@@ -7,24 +7,18 @@ class Solution:
         def dfs(i:int):
             # non local 선언
             nonlocal unfairness
-
-
+            
             if i == len(cookies):
-                unfairness = min(unfairness, max(split))
+                unfairness = min(unfairness, max(child))
                 return
-            # ready - split to kid
-            if len(split) < k:
-                split.append(cookies[i])
-                dfs(i+1)
-                split.pop()
-            distributed = set()
-            for j in range(len(split)):
-                if split[j] + cookies[i] < unfairness and split[j] not in distributed :
-                    distributed.add(split[j])
-                split[j] += cookies[i]
-                dfs(i+1)
-                split[j] -= cookies[i]
+            # already optimal solution
+            if unfairness <= max(child): 
+                return
 
-        split = []
+            for j in range(k):
+                child[j] += cookies[i]
+                dfs(i+1)
+                child[j] -= cookies[i]
+
         dfs(0)
         return unfairness
