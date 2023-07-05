@@ -15,4 +15,4 @@ class Solution:
 
             right += 1
 
-        return max_length - 1 if max_length == len(nums) else max_length - 1
+        return max_length - 1
