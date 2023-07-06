@@ -5,6 +5,9 @@
 #         self.next = next
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        # just check github
+        # have to sovle later 
+        
         head = ListNode(None)
         curr = head
         h = []
