@@ -22,5 +22,4 @@ class Solution:
                 if not neigh in visited:
                     new_prob = prob * p
                     heappush(max_heap, (new_prob, neigh))
-
         return 0
