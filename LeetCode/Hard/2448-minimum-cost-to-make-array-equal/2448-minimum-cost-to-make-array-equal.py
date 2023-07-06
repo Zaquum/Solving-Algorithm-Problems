@@ -26,4 +26,5 @@ class Solution:
             total_cost -= gap * (prefix_cost[n - 1] - prefix_cost[i - 1])
             answer = min(answer, total_cost)
             
+            
         return answer
