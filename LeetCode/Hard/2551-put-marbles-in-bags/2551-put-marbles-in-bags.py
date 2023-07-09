@@ -11,4 +11,6 @@ class Solution:
         max_fair = sum(bag[n-k:])
         min_fair = sum(bag[:k-1])
 
+        print(min_fair)
+        print(max_fair)
         return max_fair - min_fair
