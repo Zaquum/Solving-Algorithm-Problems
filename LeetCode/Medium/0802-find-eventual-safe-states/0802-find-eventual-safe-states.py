@@ -1,27 +1,21 @@
 class Solution:
     def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
-        n = len(graph)
-        visited = [0] * n
-        path = [0] * n
+        safe_nodes = set()
+        visited = set()
 
-        def dfs(cur: int, visited, path):
-            visited[cur] = 1
-            path[cur] = 1
-            for node in graph[cur]:
-                if visited[node] == 0:
-                    if dfs(node,visited,path):
-                        return True
-                elif path[node]:
-                    return True
-            path[cur] = 0
-            return False
+        def dfs(node: int) -> bool:
+            if node in safe_nodes:
+                return True
+            if node in visited:
+                return False
+            
+            visited.add(node)
+            # if there is any path that does not lead to a terminal node, the node is not safe
+            if any(not dfs(neigh) for neigh in graph[node]):
+                return False
 
-        ans = []
+            # node is safe
+            safe_nodes.add(node)
+            return True
 
-        for i in range(n):
-            if visited[i] == 0:
-                dfs(i, visited, path)
-        for i in range(n):
-            if path[i] == 0:
-                ans.append(i)
-        return ans
+        return sorted(node for node in range(len(graph)) if dfs(node))
