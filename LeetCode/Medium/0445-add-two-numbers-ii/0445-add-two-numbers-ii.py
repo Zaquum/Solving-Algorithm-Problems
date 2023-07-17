@@ -18,7 +18,7 @@ class Solution:
         l1, l2 = reverse(l1), reverse(l2)
 
         # print(l1)
-        prev = None
+        head = None
         carry = 0
 
         while l1 or l2 or carry:
@@ -30,10 +30,10 @@ class Solution:
             
             
             tmp = ListNode(out)
-            tmp.next = prev
-            prev = tmp
+            tmp.next = head
+            head = tmp
 
             l1 = (l1.next if l1 else None)
             l2 = (l2.next if l2 else None)
 
-        return prev
+        return head
