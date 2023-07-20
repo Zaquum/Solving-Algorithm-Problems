@@ -7,11 +7,11 @@ class Solution:
                     asteroids.pop(idx + 1)
                 elif abs(asteroids[idx]) < abs(asteroids[idx + 1]):
                     asteroids.pop(idx)
-                    idx -= 1
+                    idx = max(0, idx - 1)  # mov
                 else:
                     asteroids.pop(idx + 1)
                     asteroids.pop(idx)
-                idx = 0  # move back one index
+                    idx = max(0, idx - 1)  # move back one index
             else:
                 idx += 1  # move forward one index
         return asteroids
