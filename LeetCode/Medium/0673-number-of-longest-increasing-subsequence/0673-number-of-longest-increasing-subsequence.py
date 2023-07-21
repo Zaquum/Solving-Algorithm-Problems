@@ -4,12 +4,14 @@ class Solution:
         length = [1] * n # legnth of lengest ending in nums[i]
         count = [1] * n
 
-        for j, num in enumerate(nums):
+        for j in range(n):
             for i in range(j):
                 if nums[i] < nums[j]:
+                    # just update
                     if length[i] >= length[j]:
                         length[j] = length[i] + 1
                         count[j] = count[i]
+                    # sum up the path of previous route
                     elif length[i] + 1 == length[j]:
                         count[j] += count[i]
         longest = max(length)
