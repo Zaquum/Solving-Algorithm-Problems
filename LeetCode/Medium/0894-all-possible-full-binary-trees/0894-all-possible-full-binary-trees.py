@@ -25,9 +25,7 @@ class Solution:
 
                 for l in left:
                     for r in right:
-                        root = TreeNode(0)
-                        root.left = l
-                        root.right = r
+                        root = TreeNode(0, l, r)
                         res.append(root)
 
             dp[n] = res
