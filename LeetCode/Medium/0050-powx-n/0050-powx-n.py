@@ -1,5 +1,6 @@
 class Solution:
     def myPow(self, x: float, n: int) -> float:
+
         @functools.lru_cache(None)
         def solve(x, n):
             if n == 0:
@@ -10,4 +11,5 @@ class Solution:
             # odd
             else:
                 return x * solve(x * x, (n-1)/2)
+                
         return solve(x,n) if n >= 0 else 1/solve(x,-n)
