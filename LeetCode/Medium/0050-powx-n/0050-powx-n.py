@@ -4,8 +4,10 @@ class Solution:
         def solve(x, n):
             if n == 0:
                 return 1
+            # even
             elif n % 2 == 0:
                 return solve(x * x, n /2)
+            # odd
             else:
-                return x * solve(x * x, n//2)
+                return x * solve(x * x, (n-1)/2)
         return solve(x,n) if n >= 0 else 1/solve(x,-n)
