@@ -7,7 +7,8 @@ int peakIndexInMountainArray(int* arr, int arrSize){
             else
                 return find_max(start, mid);
         }
-        return start;
+        else
+            return start;
     }
     return find_max(0, arrSize-1);
 }
