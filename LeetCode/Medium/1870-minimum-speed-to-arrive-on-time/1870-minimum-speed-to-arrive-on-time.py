@@ -10,7 +10,7 @@ class Solution:
         if len(dist) - 1 >= hour:
             return -1
         
-        left,right = 1, 10**7 * max(dist)
+        left,right = 1, 10**7
         while left < right:
             mid = (left+right) // 2
             if possible(mid):
