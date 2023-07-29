@@ -1,6 +1,6 @@
 class Solution:
     def soupServings(self, n: int) -> float:
-        if n > 4800:
+        if n > 4451:
             return 1.0
         operations = [(100,0),(75,25),(50,50),(25,75)]
         memo = {}
@@ -23,5 +23,10 @@ class Solution:
 
             memo[(soupA, soupB)] = ans  # Store the computed result in memo dict
             return ans
+
+        # for i in range(1000,5000):
+        #     if 1-solve(i,i) <= 10**(-5):
+        #         print(i)
+        #         break
         
         return solve(n, n)
