@@ -10,7 +10,7 @@ public:
             if(nums[mid]==target)
                 return mid;
             // left sorted
-            if(nums[start] < nums[mid]){
+            if(nums[start] <= nums[mid]){
                 if(nums[start]<= target && target < nums[mid]){
                     end = mid - 1;
                 }
@@ -19,7 +19,7 @@ public:
             }
             // rigth sorted
             else{
-                if(nums[mid] <= target && target < nums[end])
+                if(nums[mid] < target && target <= nums[end])
                     start = mid + 1;
                 else
                     end = mid - 1;
