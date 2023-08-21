@@ -1,4 +1,9 @@
 class Solution:
     def repeatedSubstringPattern(self, s: str) -> bool:
-        s_fold = s[1:]+s[:-1]
-        return s in s_fold
+        n = len(s)
+        for i in range(1,n//2+1):
+            if n%i == 0:
+                sub = s[:i]
+                if sub*(n//i) == s:
+                    return True
+        return False
