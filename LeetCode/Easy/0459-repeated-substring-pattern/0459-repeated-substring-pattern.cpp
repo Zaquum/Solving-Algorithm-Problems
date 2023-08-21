@@ -2,9 +2,13 @@ class Solution {
 public:
     bool repeatedSubstringPattern(string s) {
         int n = s.size();
-        for(int i=n/2; i>=1; i--){
+        for(int i=n/2; i>=1 ;i--){
             if(n%i==0){
-                if(s.substr(0, n-i)==s.substr(i))
+                string sub = s.substr(0,i);
+                string repeated = "";
+                for(int j=0; j<n/i;j++)
+                    repeated += sub;
+                if(repeated == s)
                     return true;
             }
         }
