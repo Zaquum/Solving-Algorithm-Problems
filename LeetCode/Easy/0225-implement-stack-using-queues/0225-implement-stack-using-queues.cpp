@@ -1,6 +1,5 @@
 class MyStack {
 public:
-    vector<int> q;
     MyStack() {
         // global int last = 0;
 
@@ -25,6 +24,8 @@ public:
             return false;
         return true;
     }
+private:
+    vector<int> q;
 };
 
 /**
