@@ -1,6 +1,6 @@
 int candy(int* ratings, int ratingsSize){
-    int* result = (int*)malloc(ratingsSize * sizeof(int));
-
+    // int* result = (int*)malloc(ratingsSize * sizeof(int));
+    int result[ratingsSize];
     result[0] = 1;
 
     for(int i=1; i<ratingsSize; i++){
@@ -19,6 +19,6 @@ int candy(int* ratings, int ratingsSize){
     for(int i=0; i<ratingsSize; i++)
         ans += result[i];
 
-    free(result);
+    // free(result);
     return ans;
 }
