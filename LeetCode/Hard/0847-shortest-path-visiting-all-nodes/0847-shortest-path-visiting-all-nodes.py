@@ -1,55 +1,33 @@
 class Solution:
     def shortestPathLength(self, graph: List[List[int]]) -> int:
         n = len(graph)
-        # d = [[float('inf')]*n for _ in range(n)]
-
-        # for i in range(n):
-        #     d[i][i] = 0
-
-        # for i, x in enumerate(graph):
-        #     for j in x:
-        #         d[i][j] = 1
-        #         d[j][i] = 1
-
-        # for k in range(n):
-        #     for i in range(n):
-        #         for j in range(n):
-        #             if d[i][k] + d[k][j] < d[i][j]:
-        #                 d[i][j] = d[i][k] + d[k][j]
+        dist = [[float('inf')] * n for _ in range(n)]
         
-        # memo = {}
-
-        # def find_shortest_path(curr_node, visited_nodes, path_length):
-        #     if len(visited_nodes) == n:
-        #         return path_length
-            
-        #     if (curr_node, tuple(visited_nodes)) in memo:
-        #         return memo[(curr_node, tuple(visited_nodes))]
-
-        #     res = min(
-        #         find_shortest_path(next_node, visited_nodes + [next_node], path_length + d[curr_node][next_node])
-        #         for next_node in range(n)
-        #         if next_node not in visited_nodes
-        #     )
-
-        #     memo[(curr_node, tuple(visited_nodes))] = res
-        #     return res
-
-        # return min(find_shortest_path(i, [i], 0) for i in range(n))
-        memo = {}
+        for i in range(n):
+            dist[i][i] = 0
         
-        def helper(mask, node):
-            if mask == (1 << n) - 1:
-                return 0
-            if (mask, node) in memo:
-                return memo[(mask, node)]
-
-            res = float('inf')
-            for v in range(n):
-                if not (mask >> v) & 1:
-                    res = min(res, 1 + helper(mask | (1 << v), v))
-
-            memo[(mask, node)] = res
-            return res
+        for i, neighbors in enumerate(graph):
+            for neighbor in neighbors:
+                dist[i][neighbor] = 1
         
+        # Floyd-Warshall algorithm to find the shortest distance between every pair of nodes
+        for k in range(n):
+            for i in range(n):
+                for j in range(n):
+                    dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
+
+        # Dynamic programming to find the shortest path that visits every node
+        dp = [[float('inf')] * n for _ in range(1 << n)]
+        for i in range(n):
+            dp[1 << i][i] = 0
+
+        for mask in range(1, 1 << n):
+            for u in range(n):
+                if mask & (1 << u):
+                    for v in range(n):
+                        if mask & (1 << v) == 0:
+                            dp[mask | (1 << v)][v] = min(dp[mask | (1 << v)][v], dp[mask][u] + dist[u][v])
+        
+        return min(dp[(1 << n) - 1])
+
         return min(helper(1 << i, i) for i in range(n))
