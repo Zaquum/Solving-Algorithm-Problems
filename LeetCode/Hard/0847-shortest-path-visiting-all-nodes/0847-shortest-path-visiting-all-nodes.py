@@ -1,21 +1,21 @@
 class Solution:
     def shortestPathLength(self, graph: List[List[int]]) -> int:
         n = len(graph)
-        d = [[float('inf')]*n for _ in range(n)]
+        # d = [[float('inf')]*n for _ in range(n)]
 
-        for i in range(n):
-            d[i][i] = 0
+        # for i in range(n):
+        #     d[i][i] = 0
 
-        for i, x in enumerate(graph):
-            for j in x:
-                d[i][j] = 1
-                d[j][i] = 1
+        # for i, x in enumerate(graph):
+        #     for j in x:
+        #         d[i][j] = 1
+        #         d[j][i] = 1
 
-        for k in range(n):
-            for i in range(n):
-                for j in range(n):
-                    if d[i][k] + d[k][j] < d[i][j]:
-                        d[i][j] = d[i][k] + d[k][j]
+        # for k in range(n):
+        #     for i in range(n):
+        #         for j in range(n):
+        #             if d[i][k] + d[k][j] < d[i][j]:
+        #                 d[i][j] = d[i][k] + d[k][j]
         
         # memo = {}
 
@@ -47,7 +47,7 @@ class Solution:
             res = float('inf')
             for v in range(n):
                 if not (mask >> v) & 1:
-                    res = min(res, d[node][v] + helper(mask | (1 << v), v))
+                    res = min(res, 1 + helper(mask | (1 << v), v))
 
             memo[(mask, node)] = res
             return res
