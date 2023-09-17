@@ -29,5 +29,3 @@ class Solution:
                             dp[mask | (1 << v)][v] = min(dp[mask | (1 << v)][v], dp[mask][u] + dist[u][v])
         
         return min(dp[(1 << n) - 1])
-
-        return min(helper(1 << i, i) for i in range(n))
