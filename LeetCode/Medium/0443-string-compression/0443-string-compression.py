@@ -15,5 +15,5 @@ class Solution:
                     chars[index] = c
                     index += 1
             i += 1
-        chars = chars[:index]
+        # chars = chars[:index]
         return index
