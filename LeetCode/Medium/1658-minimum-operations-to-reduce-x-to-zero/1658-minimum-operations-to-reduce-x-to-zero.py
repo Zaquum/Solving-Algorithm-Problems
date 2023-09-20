@@ -1,5 +1,7 @@
 class Solution:
     def minOperations(self, nums: List[int], x: int) -> int:
+
+        # sliding window
         total_sum = sum(nums)
         target = total_sum - x
 
