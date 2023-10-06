@@ -19,7 +19,7 @@ class Solution:
             return 2
         
         count_3, r = 0, n
-        while r > 3:
+        while r >= 3:
             r -= 3
             count_3 += 1
         
@@ -29,7 +29,6 @@ class Solution:
             return 3**(count_3-1) * 4
         elif r == 2:
             return 3**count_3 * 2
-        elif r == 3:
-            return 3**count_3 * 3        
+        
 
         
