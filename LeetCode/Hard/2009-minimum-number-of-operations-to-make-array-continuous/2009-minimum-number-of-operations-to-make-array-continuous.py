@@ -1,6 +1,6 @@
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
-        unique_sorted = sorted(list(set(nums)))
+        unique_sorted = sorted(nums)
         n = len(nums)
 
         l, r, ans = 0, 0, 0
