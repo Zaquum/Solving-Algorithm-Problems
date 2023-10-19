@@ -5,20 +5,25 @@ public:
         string t_;
 
         for(auto &str : s){
-            if(str == '#'){
-                s_.pop_back();
-                continue;
+            if(str == '#') {
+                if(!s_.empty()) {
+                    s_.pop_back();
+                }
+            } else {
+                s_.push_back(str);
             }
-            s_.push_back(str);
         }
 
         for(auto &str : t){
-            if(str == '#'){
-                t_.pop_back();
-                continue;
+            if(str == '#') {
+                if(!t_.empty()) {
+                    t_.pop_back();
+                }
+            } else {
+                t_.push_back(str);
             }
-            t_.push_back(str);
         }
+
         return s_ == t_;
     }
 };
