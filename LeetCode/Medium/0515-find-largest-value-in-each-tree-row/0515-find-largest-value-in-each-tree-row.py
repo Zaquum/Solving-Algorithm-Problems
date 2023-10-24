@@ -13,6 +13,7 @@ class Solution:
         while q:
             max_val = float('-inf')
             size = len(q)
+            changed = False
             for _ in range(size):
                 cur = q.popleft()
                 if not cur:
@@ -22,7 +23,8 @@ class Solution:
                     q.append(cur.left)
                 if cur.right:
                     q.append(cur.right)
+                changed = True
             
-            if max_val != float('-inf'):
+            if changed:
                 ans.append(max_val)
         return ans
