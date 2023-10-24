@@ -20,15 +20,17 @@ public:
         while(!q.empty()){
             int max_val = INT_MIN;
             int size = q.size();
+            bool changed = false;
             for(int i = 0; i < size; i++){
                 TreeNode* cur = q.front();
                 q.pop_front();
                 max_val = max(max_val, cur->val);
                 if (cur->left) q.push_back(cur->left); 
                 if (cur->right) q.push_back(cur->right);  //
+                changed = true;
             }
-            // if(max_val != INT_MIN)
-            ans.push_back(max_val);
+            if(changed)
+                ans.push_back(max_val);
         }
         return ans;
     }
