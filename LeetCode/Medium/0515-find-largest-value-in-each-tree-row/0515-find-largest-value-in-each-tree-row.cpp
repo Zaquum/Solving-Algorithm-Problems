@@ -27,7 +27,8 @@ public:
                 if (cur->left) q.push_back(cur->left); 
                 if (cur->right) q.push_back(cur->right);  //
             }
-            ans.push_back(max_val);
+            if(max_val != INT_MIN)
+                ans.push_back(max_val);
         }
         return ans;
     }
