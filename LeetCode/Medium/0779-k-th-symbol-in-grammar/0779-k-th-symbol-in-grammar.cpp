@@ -7,5 +7,6 @@ public:
             return 1 - kthGrammar(n-1, k/2);
         else
             return kthGrammar(n-1, (k+1)/2);
+
     }
 };
