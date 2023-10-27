@@ -5,7 +5,8 @@ public:
         vector<vector<bool>> dp(n, vector<bool>(n, false));
         for(int i=0; i<n; i++)
             dp[i][i] = true;
-        string ans = string(1, s[n-1]);
+        string ans = "";
+        ans += s[n-1];
 
         int maxLen = 1;
         for(int lo = n-1; lo > -1; lo--){
