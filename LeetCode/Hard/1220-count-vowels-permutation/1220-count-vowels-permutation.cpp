@@ -1,5 +1,5 @@
 #define ll long long
-#define Modulo (int)(1e9+7)
+#define Modulo (ll)(1e9+7)
 class Solution {
 public:
     int countVowelPermutation(int n) {
