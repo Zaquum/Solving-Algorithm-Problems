@@ -11,10 +11,10 @@ class Solution:
         for i in range(5):
             dp[0][i] = 1
         for i in range(1,n):
-            dp[i][0] = dp[i-1][1] + dp[i-1][2] + dp[i-1][4]
-            dp[i][1] = dp[i-1][0] + dp[i-1][2]
-            dp[i][2] = dp[i-1][1] + dp[i-1][3]
-            dp[i][3] = dp[i-1][2]
-            dp[i][4] = dp[i-1][2] + dp[i-1][3]
+            dp[i][0] = (dp[i-1][1] + dp[i-1][2] + dp[i-1][4]) % Modulo
+            dp[i][1] = (dp[i-1][0] + dp[i-1][2]) % Modulo
+            dp[i][2] = (dp[i-1][1] + dp[i-1][3]) % Modulo
+            dp[i][3] = dp[i-1][2] % Modulo
+            dp[i][4] = (dp[i-1][2] + dp[i-1][3]) % Modulo
         # print(dp)
         return sum(dp[-1]) % Modulo
