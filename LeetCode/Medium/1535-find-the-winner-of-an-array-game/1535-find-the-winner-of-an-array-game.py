@@ -15,3 +15,4 @@ class Solution:
 
             if win_streak == k:
                 return current_winner
+        return current_winner
