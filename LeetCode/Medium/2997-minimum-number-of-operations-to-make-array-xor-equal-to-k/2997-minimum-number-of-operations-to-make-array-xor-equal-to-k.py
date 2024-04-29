@@ -1,11 +1,11 @@
 class Solution:
     def minOperations(self, nums: List[int], k: int) -> int:
-        # 110 001 010 100 -> 0 0 
-        # 010 001 011 100 -> 
+        # 110 001 010 100 -> 001
+        # 010 001 011 100 -> 100
         for num in nums:
             k ^= num
         ans = 0
-        print(k)
+        # print(k)
         while k:
             if k & 1:
                 ans += 1
