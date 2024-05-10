@@ -1,7 +1,14 @@
 class Solution:
     def kthSmallestPrimeFraction(self, arr: List[int], k: int) -> List[int]:
-        arrs = []
-        for arr in itertools.permutations(arr, 2):
-            arrs.append(arr)
-        arrs.sort(key = lambda x:x[0]/x[1])
-        return arrs[k-1]
+        heap = []
+        n = len(arr)
+        heapq.heapify(heap)
+        for i in range(n):
+            for j in range(i+1, n):
+                heapq.heappush(heap, (arr[i] / arr[j], arr[i], arr[j]))
+        ans = None
+        while k:
+            _, i, j = heapq.heappop(heap)
+            ans = [i, j]
+            k -= 1
+        return ans
