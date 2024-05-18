@@ -8,7 +8,7 @@ class Solution:
     def distributeCoins(self, root: Optional[TreeNode]) -> int:
         move = 0
         
-        @cache
+        @lru_cache
         def dfs(cur):
             nonlocal move
             
