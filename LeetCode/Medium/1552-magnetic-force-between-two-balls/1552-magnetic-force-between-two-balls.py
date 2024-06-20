@@ -19,7 +19,6 @@ class Solution:
         while left <= right:
             mid = (left + right) // 2
             if can_dist_possible(mid):
-                ans = mid
                 left = mid + 1
             else:
                 right = mid - 1
