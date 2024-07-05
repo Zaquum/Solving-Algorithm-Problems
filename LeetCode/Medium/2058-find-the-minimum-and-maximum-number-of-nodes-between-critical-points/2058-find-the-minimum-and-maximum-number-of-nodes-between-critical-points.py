@@ -6,8 +6,10 @@
 class Solution:
     def nodesBetweenCriticalPoints(self, head: Optional[ListNode]) -> List[int]:
         prev = head
-        cur = head.next
-        next_ = head.next.next
+        # cur = head.next
+        cur = prev.next
+        # next_ = head.next.next
+        next_ = cur.next
 
         criticals = []
         i = 1
