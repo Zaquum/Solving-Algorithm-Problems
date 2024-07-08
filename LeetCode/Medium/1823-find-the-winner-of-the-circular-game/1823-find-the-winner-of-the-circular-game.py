@@ -1,6 +1,9 @@
 class Solution:
     def findTheWinner(self, n: int, k: int) -> int:
-        ans = 0 
-        for i in range(1, n + 1):
-            ans = (ans + k) % i
-        return ans + 1
+        def josephus(n, k):
+            if n == 1:
+                return 0
+            else:
+                return (josephus(n - 1, k) + k) % n
+
+        return josephus(n, k) + 1
