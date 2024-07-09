@@ -1,22 +1,10 @@
 class Solution:
     def averageWaitingTime(self, customers: List[List[int]]) -> float:
-        prev_finish = -1
+        actual_arr = 0
         total_wait = 0
         for arr, time in customers:
-            # first case
-            if prev_finish < 0:
-                prev_finish = arr + time
-                total_wait += time
-                continue
+            actual_arr = max(actual_arr, arr) + time
+            total_wait += actual_arr - arr
             
-            if prev_finish <= arr:
-                prev_finish = arr + time
-            else:
-                total_wait += prev_finish - arr
-                prev_finish += time
-                
-            total_wait += time
-            
-            print(prev_finish, total_wait)
         return total_wait / len(customers)
         # return total_wait
